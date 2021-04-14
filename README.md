@@ -1,12 +1,11 @@
 # WorkoutTrail
 
-
 ## Description
 
+This application is a workout tracker.
 
 
-
-![]()
+![Workout Trails]()
 
 ## Table of Contents
 
@@ -24,12 +23,12 @@
 
   ### Installation
   ```
-npm can be used to install dependencies such as 
+npm can be used to install dependencies such as express, mongoose and morgan, which are used in this application.
   ```
  
   ### Usage
  
-This application 
+This application is great for keeping track of your workouts.
 
   ### License
   This project is licensed under MIT.
