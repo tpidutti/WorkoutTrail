@@ -1,26 +1,23 @@
 const express = require('express');
-const logger = require('morgan');
+const morgan = require('morgan');
 const mongoose = require ('mongoose');
 
-const PORT = process.env.PORT || 8080;
-
-// const db = require('./models');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(morgan("dev"));
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static('public'));
+app.use(require('./routes'));
 
-mongoose.connect(process.env.MONGODDB_URI ||'mongodb://localhost/populate', {useNewUrlParser: true });
+// import model workout
+const db = require('./models');
 
-// db.Exercises.create({ name: "" })
-// .then(dbExercises => {
-//     console.log(dbExercises);
-// });
-
-// app.post
-
-// app.get
+// put db name after localhost
+mongoose.connect(process.env.MONGODDB_URI ||'mongodb://localhost/workout', {useNewUrlParser: true });
 
 
 app.listen(PORT, () => {
