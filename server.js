@@ -10,13 +10,12 @@ app.use(morgan("dev"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use(express.static('public'));
 app.use(require('./routes'));
+app.user(require('/models'));
 
-// import model workout
-const db = require('./models');
 
-// put db name after localhost
 mongoose.connect(process.env.MONGODDB_URI ||'mongodb://localhost/workout', {useNewUrlParser: true });
 
 
