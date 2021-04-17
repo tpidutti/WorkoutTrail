@@ -15,7 +15,10 @@ app.use(express.static('public'));
 app.use(require('./routes/api.js'));
 app.use(require('./routes/view.js'));
 
-mongoose.connect(process.env.MONGODDB_URI ||'mongodb://localhost/workout', {useNewUrlParser: true });
+mongoose.connect(process.env.MONGODDB_URI ||'mongodb://localhost/workout', {useNewUrlParser: true,
+useUnifiedTopology: true,
+useCreateIndex: true,
+useFindAndModify: false });
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`);
